@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import {
+  Button,
   Box,
   FormControl,
   InputLabel,
@@ -43,6 +44,7 @@ const AttendancePage: FunctionComponent<AttendancePageProps> = () => {
   const [currentSpot, setCurrentSpot] = useState<Spot>();
   const [currentSpotId, setCurrentSpotId] = useState<number>(0);
   const [pageSize, setPageSize] = useState<number>(10);
+  const [keyword, setKeyword] = useState<string>("");
   const [spotList, setSpotList] = useState<Spot[]>([]);
   const [yatri, setYatri] = useState<Yatri[]>([]);
   const [attendanceLoading, setAttendanceLoading] = useState(false);
@@ -76,12 +78,14 @@ const AttendancePage: FunctionComponent<AttendancePageProps> = () => {
   };
 
   function getAllYatri() {
+    setAttendanceLoading(true);
     getYatriAPI()
-      .getYatriList({ type: "all" })
+      .getYatriList({ type: "all", keyword: keyword })
       .then((res) => {
         setYatri(res.data);
         setAttendanceLoading(false);
-      });
+      })
+      .catch(() => setAttendanceLoading(false));
   }
 
   useEffect(() => {
@@ -113,6 +117,10 @@ const AttendancePage: FunctionComponent<AttendancePageProps> = () => {
       getAllYatri();
     }
   }, [currentSpotId]);
+
+  const search = () => {
+    getAllYatri();
+  };
 
   if (currentSpot === undefined) {
     return <Typography color="info">Please wait ...</Typography>;
@@ -185,16 +193,28 @@ const AttendancePage: FunctionComponent<AttendancePageProps> = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "left",
-          gap: 2,
+          gap: 1,
           mb: 2,
+          position: "relative",
         }}
       >
-        <Typography variant="subtitle2" color="primary">
+        <Typography
+          sx={{
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            top: -23,
+            zIndex: 1,
+          }}
+          variant="subtitle2"
+          color="lightblue"
+        >
           Current spot: {currentSpot.name}
         </Typography>
-        <FormControl sx={{ width: 200 }}>
+        <FormControl>
           <InputLabel id="prev_spot_id2">Previous spot</InputLabel>
           <Select
+            variant="outlined"
             labelId="prev_spot_id2"
             id="prev_spot_id"
             value={currentSpotId}
@@ -213,7 +233,7 @@ const AttendancePage: FunctionComponent<AttendancePageProps> = () => {
             ))}
           </Select>
         </FormControl>
-        <FormControl sx={{ width: 200 }}>
+        <FormControl>
           <InputLabel id="demo-simple-select-label">Page size</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -228,6 +248,23 @@ const AttendancePage: FunctionComponent<AttendancePageProps> = () => {
             <MenuItem value={100}>100</MenuItem>
           </Select>
         </FormControl>
+        <Box sx={{ display: "flex", gap: 1 }}>
+          <TextField
+            onChange={(e) => setKeyword(e.target.value)}
+            label="Search"
+            fullWidth
+            variant="outlined"
+            size="small"
+          />
+          <Button
+            size="small"
+            variant="contained"
+            color="success"
+            onClick={search}
+          >
+            Search
+          </Button>
+        </Box>
       </Box>
       <DataGrid
         components={{
