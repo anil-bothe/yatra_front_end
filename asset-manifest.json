@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/yatra_front_end/static/css/main.a8edfd8a.css",
-    "main.js": "/yatra_front_end/static/js/main.5aca5b9c.js",
+    "main.js": "/yatra_front_end/static/js/main.a9db9a2f.js",
     "static/js/787.68b37493.chunk.js": "/yatra_front_end/static/js/787.68b37493.chunk.js",
     "index.html": "/yatra_front_end/index.html",
     "main.a8edfd8a.css.map": "/yatra_front_end/static/css/main.a8edfd8a.css.map",
-    "main.5aca5b9c.js.map": "/yatra_front_end/static/js/main.5aca5b9c.js.map",
+    "main.a9db9a2f.js.map": "/yatra_front_end/static/js/main.a9db9a2f.js.map",
     "787.68b37493.chunk.js.map": "/yatra_front_end/static/js/787.68b37493.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a8edfd8a.css",
-    "static/js/main.5aca5b9c.js"
+    "static/js/main.a9db9a2f.js"
   ]
 }
