@@ -20,7 +20,7 @@ import { Yatri } from "../schema/yatri";
 import getAttendanceAPI from "../service/attendance";
 import getSpotAPI from "../service/spot";
 import getYatriAPI from "../service/yatri";
-import FilterAltRoundedIcon from '@mui/icons-material/FilterAltRounded';
+import FilterAltRoundedIcon from "@mui/icons-material/FilterAltRounded";
 
 interface AttendancePageProps {}
 const StyledGridOverlay = styled("div")(({ theme }) => ({
@@ -180,38 +180,39 @@ const AttendancePage: FunctionComponent<AttendancePageProps> = () => {
 
   return (
     <div style={{ height: "100vh", width: "100%" }}>
-      <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between" }}>
-        <Box sx={{ display: "flex", justifyContent: "left", gap: 2 }}>
-          <FormControl>
-            <TextField
-              label="Current spot"
-              size="small"
-              disabled
-              value={currentSpot.name}
-            />
-          </FormControl>
-          <FormControl sx={{ width: 200 }}>
-            <InputLabel id="prev_spot_id2">Previous spot</InputLabel>
-            <Select
-              labelId="prev_spot_id2"
-              id="prev_spot_id"
-              value={currentSpotId}
-              size="small"
-              label="Previous spot"
-              onChange={(e) => setCurrentSpotId(e.target.value as number)}
-            >
-              {" "}
-              <MenuItem value={0} selected>
-                --
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "left",
+          gap: 2,
+          mb: 2,
+        }}
+      >
+        <Typography variant="subtitle2" color="primary">
+          Current spot: {currentSpot.name}
+        </Typography>
+        <FormControl sx={{ width: 200 }}>
+          <InputLabel id="prev_spot_id2">Previous spot</InputLabel>
+          <Select
+            labelId="prev_spot_id2"
+            id="prev_spot_id"
+            value={currentSpotId}
+            size="small"
+            label="Previous spot"
+            onChange={(e) => setCurrentSpotId(e.target.value as number)}
+          >
+            {" "}
+            <MenuItem value={0} selected>
+              --
+            </MenuItem>
+            {spotList.map((item) => (
+              <MenuItem key={`new-${item.id}`} value={item.id}>
+                {item.name}
               </MenuItem>
-              {spotList.map((item) => (
-                <MenuItem key={`new-${item.id}`} value={item.id}>
-                  {item.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Box>
+            ))}
+          </Select>
+        </FormControl>
         <FormControl sx={{ width: 200 }}>
           <InputLabel id="demo-simple-select-label">Page size</InputLabel>
           <Select
