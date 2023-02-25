@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.MuiDataGrid-filterForm {
+  position: absolute;
+  background-color: rgb(231, 232, 255);
+  bottom: 100px;
+  left: 0;
+  transform: translateY(50px);
+}
