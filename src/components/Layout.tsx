@@ -138,13 +138,13 @@ export default function Layout(props: any) {
                 onClick={() => {
                   switch (text) {
                     case "Dashboard":
-                      return navigate("/");
+                      return navigate(`${process.env.PUBLIC_URL}`);
                     case "Yatri":
-                      return navigate("/yatri");
+                      return navigate(`${process.env.PUBLIC_URL}/yatri`);
                     case "Attendance":
-                      return navigate("/attendance");
+                      return navigate(`${process.env.PUBLIC_URL}/attendance`);
                     case "Spot":
-                      return navigate("/spot");
+                      return navigate(`${process.env.PUBLIC_URL}/spot`);
                   }
                 }}
               >
@@ -167,7 +167,7 @@ export default function Layout(props: any) {
                 onClick={() => {
                   switch (text) {
                     case "My Account":
-                      return navigate("/my/acc");
+                      return navigate(`${process.env.PUBLIC_URL}/my/acc`);
 
                     case "Logout":
                       // call api for logout
@@ -175,7 +175,7 @@ export default function Layout(props: any) {
                       api
                         .logout()
                         .then((res) => {
-                          return navigate("/login");
+                          return navigate(`${process.env.PUBLIC_URL}/login`);
                         })
                         .catch((e) => console.log(e));
                   }
