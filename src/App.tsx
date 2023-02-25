@@ -19,11 +19,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<PrivateOutlet />}>
-            <Route path="/" element={Wrapper(<Dashboard />)} />
-            <Route path="/yatri" element={Wrapper(<YatriPage />)} />
-            <Route path="/spot" element={Wrapper(<SpotPage />)} />
-            <Route path="/attendance" element={Wrapper(<AttendancePage />)} />
-            <Route path="/my/acc" element={Wrapper(<MyAccPage />)} />
+            <Route path={`${process.env.PUBLIC_URL}`} element={Wrapper(<Dashboard />)} />
+            <Route path={`${process.env.PUBLIC_URL}/yatri`} element={Wrapper(<YatriPage />)} />
+            <Route path={`${process.env.PUBLIC_URL}/spot`} element={Wrapper(<SpotPage />)} />
+            <Route path={`${process.env.PUBLIC_URL}/attendance`} element={Wrapper(<AttendancePage />)} />
+            <Route path={`${process.env.PUBLIC_URL}/my/acc`} element={Wrapper(<MyAccPage />)} />
             <Route path="*" element={Wrapper(<Error404 />)} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
@@ -43,7 +43,7 @@ function PrivateOutlet() {
 
 function useAuth() {
   return true;
-  
+
   if (axios.defaults.headers.common['Authorization'] !== undefined){
     return true;
   }
