@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.a8edfd8a.css",
-    "main.js": "/static/js/main.e208179b.js",
-    "static/js/787.68b37493.chunk.js": "/static/js/787.68b37493.chunk.js",
-    "index.html": "/index.html",
-    "main.a8edfd8a.css.map": "/static/css/main.a8edfd8a.css.map",
-    "main.e208179b.js.map": "/static/js/main.e208179b.js.map",
-    "787.68b37493.chunk.js.map": "/static/js/787.68b37493.chunk.js.map"
+    "main.css": "/yatra_front_end/static/css/main.a8edfd8a.css",
+    "main.js": "/yatra_front_end/static/js/main.412c987d.js",
+    "static/js/787.68b37493.chunk.js": "/yatra_front_end/static/js/787.68b37493.chunk.js",
+    "index.html": "/yatra_front_end/index.html",
+    "main.a8edfd8a.css.map": "/yatra_front_end/static/css/main.a8edfd8a.css.map",
+    "main.412c987d.js.map": "/yatra_front_end/static/js/main.412c987d.js.map",
+    "787.68b37493.chunk.js.map": "/yatra_front_end/static/js/787.68b37493.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a8edfd8a.css",
-    "static/js/main.e208179b.js"
+    "static/js/main.412c987d.js"
   ]
 }
